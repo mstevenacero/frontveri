@@ -1,0 +1,55 @@
+<ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-back-button (click)="logIn()" defaultHref='/login' style="color:black" text=""></ion-back-button>
+ </ion-buttons>
+ <ion-buttons slot="secondary">
+  <ion-button>
+    <ion-icon slot="icon-only" name="person-circle"></ion-icon>
+  </ion-button>
+  <ion-button (click)="routerClick('home')">
+    <ion-icon slot="icon-only" name="planet"></ion-icon>
+  </ion-button>
+</ion-buttons>
+<ion-buttons slot="primary">
+  <ion-button color="danger">
+    <ion-icon slot="icon-only" ios="ellipsis-horizontal" md="ellipsis-vertical"></ion-icon>
+  </ion-button>
+</ion-buttons>
+<ion-title>{{nameUser}}</ion-title>
+</ion-toolbar>
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-select [(ngModel)]="news.categoria" id="select" placeholder="Seleciona">
+        <ion-select-option value="entertainment">Entretenimiento</ion-select-option>
+        <ion-select-option value="business">Negocios</ion-select-option>
+        <ion-select-option value="general">General</ion-select-option>
+        <ion-select-option value="health">Salud</ion-select-option>
+        <ion-select-option value="science">Ciencia</ion-select-option>
+        <ion-select-option value="sports">Deportes</ion-select-option>
+        <ion-select-option value="technology">Tecnologia</ion-select-option>
+      </ion-select>
+      
+      <ion-select [(ngModel)]="news.pais" id="select" placeholder="Seleciona">
+        <ion-select-option value="co">Colombia</ion-select-option>
+        <ion-select-option value="us">EEUU</ion-select-option>
+      </ion-select>
+      <ion-select [(ngModel)]="news.lenguage" id="select" placeholder="Seleciona">
+        <ion-select-option value="es">Español</ion-select-option>
+        <ion-select-option value="en">Ingles</ion-select-option>
+      </ion-select>
+      <ion-button (click)="filter()" id="buttonI" >filtrar</ion-button>
+    </ion-item>
+  </ion-list>
+  <ion-card *ngFor="let item of dataFor">
+    <ion-card-header>
+     <img src={{item.urlToImage}} alt="">
+      <ion-card-subtitle>{{item.author}}</ion-card-subtitle>
+      <ion-card-title>{{item.title}}</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+     <a href={{item.url}}>Leer mas</a>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

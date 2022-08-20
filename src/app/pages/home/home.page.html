@@ -1,0 +1,27 @@
+<ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-back-button defaultHref='/tab1' style="color:black" text=""></ion-back-button>
+ </ion-buttons>
+ </ion-toolbar>
+<ion-content>
+  <h1>Escoja su divisa</h1>
+  <ion-row>
+    <img src="../../../assets/images/divisa.png" alt="">
+  </ion-row>
+  <ion-row>  
+    <div id="form">
+      <ion-item class="items">
+        <ion-label class="label" position="floating">Moneda</ion-label>
+        <ion-select id="select" [(ngModel)]="change">
+          <ion-select-option value="usd">Dolar</ion-select-option>
+          <ion-select-option value="eur">Euro</ion-select-option>
+          <ion-select-option value="jpy">Yen</ion-select-option>
+          <ion-select-option value="ars">Peso Argentino</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </div>
+  </ion-row>
+  <div>
+    <ion-button (click)="sendActivate()">Cambio</ion-button>
+  </div>
+</ion-content>

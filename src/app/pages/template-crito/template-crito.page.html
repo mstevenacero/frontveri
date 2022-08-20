@@ -1,0 +1,23 @@
+<ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-back-button defaultHref='/home' style="color:black" text=""></ion-back-button>
+ </ion-buttons>
+</ion-toolbar>
+<ion-content>
+  <ion-grid>
+    <ion-row *ngFor="let item of forData">
+      <ion-col>
+        <p>{{item.name}}</p>
+      </ion-col>
+      <ion-col>
+       <img  id="image" src="{{item.image}}" alt="">
+      </ion-col>
+      <ion-col>
+        <p>{{item.current_price}}$</p>
+      </ion-col>
+      <ion-col (click)="sendId(item.id,item.name,item.image,item.current_price,item.market_cap_rank,item.total_volume)">
+      <ion-icon id="eye" name="eye"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

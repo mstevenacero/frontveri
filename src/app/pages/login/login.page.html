@@ -1,0 +1,56 @@
+
+<ion-content [fullscreen]="true">
+  <div>
+    <img style="width: 200px;margin-left: 5rem;margin-top:1rem;"src="https://cdn.pixabay.com/photo/2018/10/26/09/24/news-3774160_1280.png" alt="">
+  </div>
+  <div>
+    <ion-tabs id="tabs" no-lines>
+      <ion-tab-bar slot="top" >
+        <ion-tab-button (click)="changeOne()" class="tabs-one" >
+          <p>Inicio</p>
+        </ion-tab-button>
+        <ion-tab-button (click)="changeTwo()"  class="tabs-one" >
+         <p>Registro</p>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+    </div>
+  <div class="register" *ngIf="change">
+    <div id ="forms">
+      <ion-item class="items">
+        <ion-label class="label" position="floating">Nombre completo</ion-label>
+        <ion-input [(ngModel)]="user.name" required="true"></ion-input>
+      </ion-item>
+      <ion-item class="items">
+        <ion-label class="label"  position="floating">Número de documento</ion-label>
+        <ion-input  [(ngModel)]="user.identification_card" required="true" type="cc-number"></ion-input>
+      </ion-item>
+      <ion-item class="items">
+        <ion-label placeholder="telefono" class="label" position="floating">Telefono</ion-label>
+        <ion-input [(ngModel)]="user.phone" required="true" type=""></ion-input>
+      </ion-item>
+      <ion-item class="items">
+        <ion-label class="label" position="floating">Contraseña</ion-label>
+        <ion-input [(ngModel)]="user.password" name="password"required="true" type="password" minlength="8"></ion-input>
+      </ion-item>
+    </div>
+    <ion-grid style="margin-top: 40px;">
+      <ion-button (click)="createCount()"  id="buttonI" >Registrarse</ion-button>
+    </ion-grid>
+  </div>
+  <div class="login" *ngIf="change2">
+    <div id ="forms">
+      <ion-item class="items">
+        <ion-label class="label"  position="floating">Número de documento</ion-label>
+        <ion-input [(ngModel)]="userLogin.identification_card" required="true" type="cc-number"></ion-input>
+      </ion-item>
+      <ion-item class="items">
+        <ion-label class="label" position="floating">Contraseña</ion-label>
+        <ion-input  [(ngModel)]="userLogin.password" name="password"required="true" type="password" minlength="8"></ion-input>
+      </ion-item>
+    </div>
+    <ion-grid style="margin-top: 40px;">
+      <ion-button  (click)="LoginUp()" id="buttonI" >ingresar</ion-button>
+    </ion-grid>
+  </div> 
+</ion-content>
